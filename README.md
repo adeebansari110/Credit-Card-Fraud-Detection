@@ -1,47 +1,55 @@
-# Credit-Card-Fraud-Detection
-Credit Card Fraud Detection using Random Forest
-This project detects fraudulent credit card transactions using the Random Forest algorithm. The dataset used is highly imbalanced and contains transactions made by European cardholders in September 2013.
+# Credit Card Fraud Detection
 
-📌 Features
-Uses Random Forest Classifier for binary classification.
+This project demonstrates a machine learning workflow for detecting fraudulent credit card transactions using a public dataset. The analysis is performed in a Jupyter Notebook and leverages Python's data science libraries.
 
-Splits data into training and testing sets.
+## Dataset
+- **File:** `creditcard.csv`
+- **Source:** [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+- **Description:** Contains transactions made by European cardholders in September 2013. The dataset presents transactions that occurred in two days, with 492 frauds out of 284,807 transactions. The dataset is highly unbalanced, with the positive class (frauds) accounting for 0.172% of all transactions.
+- **Features:**
+  - `Time`, `Amount`, `V1`-`V28` (anonymized principal components), `Class` (0: normal, 1: fraud)
 
-Evaluates model with accuracy.
+## Workflow
+1. **Data Loading & Exploration:**
+   - Load the dataset and inspect its structure, missing values, and class distribution.
+2. **Data Preprocessing:**
+   - Under-sample the majority class to balance the dataset for model training.
+   - Visualize the distribution of classes and transaction characteristics.
+3. **Feature Selection:**
+   - Separate features (`X`) and target (`Y`).
+4. **Train-Test Split:**
+   - Split the balanced data into training and testing sets (80/20 split, stratified).
+5. **Model Training:**
+   - Train a Random Forest Classifier on the training data.
+6. **Evaluation:**
+   - Evaluate the model's accuracy on both training and test sets.
 
-Can be extended to use confusion matrix, precision, recall, etc.
+## Results
+- **Training Accuracy:** ~98.9%
+- **Test Accuracy:** ~92.4%
 
-📁 Dataset
-Source: Kaggle - Credit Card Fraud Detection
+## Requirements
+- Python 3.x
+- Jupyter Notebook
+- pandas
+- numpy
+- scikit-learn
+- matplotlib
+- seaborn
 
-284,807 transactions
+You can install the required packages using:
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn
+```
 
-492 frauds (0.172% of all transactions)
+## Usage
+1. Place `creditcard.csv` in the project directory.
+2. Open `creditcard.ipynb` in Jupyter Notebook.
+3. Run the notebook cells sequentially to reproduce the analysis and results.
 
-Features: V1 to V28 (PCA transformed), Amount, Time, and Class (0: Non-fraud, 1: Fraud)
+## Notes
+- The dataset is highly imbalanced; this notebook uses under-sampling for demonstration. For production systems, consider more advanced techniques (e.g., SMOTE, ensemble methods).
+- The features `V1`-`V28` are anonymized due to confidentiality.
 
-🧠 Model Used
-RandomForestClassifier from scikit-learn
-
-Works well for imbalanced datasets and captures complex relationships
-
-🧪 Tech Stack
-Python
-
-Pandas
-
-Scikit-learn
-
-Jupyter Notebook / Google Colab
-
-📜 License
-This project is under the MIT License.
-
-
-
-
-
-
-
-
-
+## License
+This project is for educational purposes. Please refer to the [Kaggle dataset license](https://www.kaggle.com/mlg-ulb/creditcardfraud) for dataset usage rights. 
